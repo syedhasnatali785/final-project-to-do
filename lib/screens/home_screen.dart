@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -15,6 +16,37 @@ class _HomeScreenState extends State<HomeScreen> {
   void dispose() {
     insertFieldController.dispose();
     super.dispose();
+  }
+
+  Future<void> loadTasks() async {
+    SharedPreferences sp = await SharedPreferences.getInstance();
+    List<String>? storedList = sp.getStringList('taskData');
+    if (storedList != null) {
+      tasks.clear();
+      isCheckedList.clear();
+      for (String item in storedList) {
+        List<String> parts = item.split('|');
+        tasks.add(parts[0]);
+        isCheckedList.add(parts[1] == 'true');
+      }
+      setState(() {});
+    }
+  }
+
+  Future<void> saveTasks() async {
+    SharedPreferences sp = await SharedPreferences.getInstance();
+    List<String> storedList = [];
+    for (int i = 0; i < tasks.length; i++) {
+      storedList.add("${tasks[i]}|${isCheckedList[i]}");
+      await sp.setString("taskData", storedList.toString());
+    }
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    loadTasks();
   }
 
   @override
@@ -38,6 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         isCheckedList.add(false);
                         insertFieldController.clear();
                       });
+                      saveTasks();
                     }
                   },
                   child: Row(
@@ -68,6 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         tasks.removeAt(index);
                         isCheckedList.removeAt(index);
                       });
+                      saveTasks();
                     },
                     child: ListTile(
                       title: Text(tasks[index]),
