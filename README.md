@@ -1,111 +1,127 @@
-🚀 Flutter Development Intern Task – Week 3
-📱 Task Management App
-📌 Overview
+# 📘 WEEK 3 – README.md
+
+## 🚀 Flutter Development Intern Task – Week 3
+
+### 📱 Task Management App
+
+---
+
+## 📌 Overview
 
 This project is a simple Task Management application built using Flutter.
 
 It allows users to:
 
-Add tasks
-
-Delete tasks
-
-Mark tasks as completed
-
-Persist data using SharedPreferences
+* Add tasks
+* Delete tasks
+* Mark tasks as completed
+* Persist data using SharedPreferences
 
 The application demonstrates state management and local data persistence.
 
-🎯 Features
+---
 
-➕ Add new tasks
+## 🎯 Features
 
-✅ Mark tasks as complete (Checkbox)
+* ➕ Add new tasks
+* ✅ Mark tasks as complete (Checkbox)
+* ❌ Delete tasks using swipe (Dismissible)
+* 💾 Persistent storage using SharedPreferences
+* 🔄 Data remains after app restart
+* 🎨 Clean and responsive UI
+* 📋 Custom AppBar with title
 
-❌ Delete tasks using swipe (Dismissible)
+---
 
-💾 Persistent storage using SharedPreferences
+## 🛠 Technologies Used
 
-🔄 Data remains after app restart
+* Flutter
+* Dart
+* SharedPreferences (local storage)
 
-🎨 Clean and responsive UI
+---
 
-📋 Custom AppBar with title
+## 📂 Project Structure
 
-🛠 Technologies Used
-
-Flutter
-
-Dart
-
-SharedPreferences (local storage)
-
-📂 Project Structure
+```id="w3structure"
 lib/
  ├── main.dart
  └── home_screen.dart
-💾 Data Persistence Logic
+```
+
+---
+
+## 💾 Data Persistence Logic
 
 Tasks are stored locally using SharedPreferences.
 
 Each task is stored as a formatted string:
 
+```id="w3format"
 Task Title|true
 Task Title|false
+```
 
 On app startup:
 
-Data is loaded in initState()
+* Data is loaded in `initState()`
+* Stored strings are split and converted back into task + completion state
 
-Stored strings are split and converted back into task + completion state
+---
 
-▶ How to Run the Project
+## ▶ How to Run the Project
 
-Clone the repository:
+1. Clone the repository:
 
+```bash id="w3clone"
 git clone <your-repo-link>
+```
 
-Navigate to project folder:
+2. Navigate to project folder:
 
+```bash id="w3cd"
 cd project-name
+```
 
-Install dependencies:
+3. Install dependencies:
 
+```bash id="w3pubget"
 flutter pub get
+```
 
-Run the app:
+4. Run the app:
 
+```bash id="w3run"
 flutter run
-🧠 Learning Outcomes
+```
 
-Understanding StatefulWidget
+---
 
-Managing UI using setState
+## 🧠 Learning Outcomes
 
-Working with Lists and dynamic UI
+* Understanding StatefulWidget
+* Managing UI using setState
+* Working with Lists and dynamic UI
+* Using SharedPreferences for persistent storage
+* Understanding Flutter lifecycle (initState)
+* Debugging and testing
 
-Using SharedPreferences for persistent storage
+---
 
-Understanding Flutter lifecycle (initState)
-
-Debugging and testing
-
-📹 Demo
+## 📹 Demo
 
 A short demo video is included showcasing:
 
-Adding tasks
+* Adding tasks
+* Deleting tasks
+* Marking tasks complete
+* App restart with saved data
 
-Deleting tasks
+---
 
-Marking tasks complete
+## 👨‍💻 Author
 
-App restart with saved data
-
-👨‍💻 Author
-
-Syed Hasnat Ali
+**Syed Hasnat Ali**
 Flutter Development Intern
 
-## 🌟 Future Improvements
-- Add task editing feature
+---
